@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 11:47:56 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/17 09:45:55 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:41:55 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ char	**fill_args(t_var *v, int argc, char **argv)
 	else
 		v->split = &argv[1];
 	return (v->split);
+}
+
+void	ft_exit(int code)
+{
+	write (1, "Error\n", 6);
+	exit(code);
 }
 
 /*

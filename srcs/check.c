@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 08:28:16 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/17 12:39:11 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:42:48 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,7 @@ void	check_dup(char **argv)
 			else if (ft_strcmp(tmp, argv[j]) == 0)
 			{
 				ft_free_arg(&tmp);
-				write (1, "Error\n", 6);
-				exit(1);
+				ft_exit(1);
 			}
 			else
 				j++;
@@ -89,27 +88,18 @@ int	check_digits(char **argv)
 
 	i = -1;
 	if (!argv[0])
-	{
-		write (1, "Error\n", 6);
-		exit(1);
-	}
+		ft_exit(1);
 	while (argv[++i])
 	{
 		j = -1;
 		if (check_overflow(argv[i]) == 0)
-		{
-			write (1, "Error\n", 6);
-			exit (1);
-		}
+			ft_exit(1);
 		while (argv[i][++j])
 		{
 			if (ft_isalpha(argv[i][j]) == 1 || argv[i][j] == '.'
 			|| ((argv[i][j]) == '-' && (argv[i][j + 1]) == '\0')
 			|| ((argv[i][j]) == '+' && (argv[i][j + 1]) == '\0'))
-			{
-				write (1, "Error\n", 6);
-				exit (1);
-			}
+				ft_exit(1);
 		}
 	}
 	return (1);

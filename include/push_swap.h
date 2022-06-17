@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 10:36:33 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 11:23:01 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:45:52 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,5 @@ int		get_min(t_list *stack);
 int		get_max(t_list *stack);
 int		get_index(t_list *stack, int num, int flag);
 int		get_pivot(t_list *stack);
-
+void	ft_exit(int code);
 #endif
