@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 11:34:32 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/14 12:41:29 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 12:56:07 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ t_list	*ft_lst_dup(t_list *stack)
 			ft_bzero(tmp1->next, sizeof (t_list));
 			tmp1 = tmp1->next;
 		}
-		tmp1 = tmp2;
-		return (tmp1);
+		stack = stack->next;
 	}
 	tmp1 = tmp2;
 	return (tmp1);
@@ -91,4 +90,19 @@ t_list	*ft_lst_bottom(t_list *a)
 	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp);
+}
+
+void	add_back_r(t_list **top)
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+
+	tmp1 = NULL;
+	tmp1 = *top;
+	tmp2 = (*top)->previous;
+	while (tmp1->next)
+		tmp1 = tmp1->next;
+	tmp1->next = tmp2;
+	tmp1->next->previous = tmp1;
+	tmp1->next->next = NULL;
 }

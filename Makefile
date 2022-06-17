@@ -6,7 +6,7 @@
 #    By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 11:23:14 by asolano-          #+#    #+#              #
-#    Updated: 2022/06/15 09:24:41 by asolano-         ###   ########.fr        #
+#    Updated: 2022/06/17 09:44:14 by asolano-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ $(LIB) 		:
 				mv $(LIB_DIR)$(LIB) .
 
 $(PS_NAME)	:	$(PS_OBJ) $(LIB)
-				$(CC) -fsanitize=address -o $@ $^
+				$(CC) -o $@ $^
 
 # $(C_NAME)	:	$(C_OBJ) $(LIB)
 				# $(CC) -fsanitize=address -o $@ $^

@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 10:08:31 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/21 12:39:50 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 13:00:51 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 void	*ft_memset(void *str, int c, size_t n)
 {
+	unsigned char	*ptr;
+
+	ptr = str;
 	while (n > 0)
 	{
-		((char *)str)[n - 1] = c;
+		*ptr = c;
+		ptr++;
 		n--;
 	}
 	return (str);

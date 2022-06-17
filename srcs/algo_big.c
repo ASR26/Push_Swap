@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 12:19:21 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:05:22 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:19:46 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** que el pivote encontrado, el pivote en este caso será el valor más alto de
 ** la sección
 **
-** Conocidas las condiciones, empujará los números al stacj 'b', preparando
+** Conocidas las condiciones, empujará los números al stack 'b', preparando
 ** las secciones de números para ordenar
 **
 ** Si no cumple las condiciones hará una smart rotation del stack 'a'
@@ -54,7 +54,7 @@ void	first_sort(t_list **a, t_list **b, int len, t_var *v)
 /*
 ** Cuando solo queden los números grandes en el stack 'a' (desordenados)
 ** cogerá los números superiores de 'a' y los enviará a 'b' si es el
-** número más pequeño, si no hara un smart rotate del stack
+** número más pequeño, si no hará un smart rotate del stack
 ** Esto se repetirá mietras la lista tenga números
 */
 void	second_sort(t_list **a, t_list **b, int len, t_var *v)
@@ -91,7 +91,7 @@ void	second_sort(t_list **a, t_list **b, int len, t_var *v)
 ** Primero mientras el pivote y el primer elemento de b sean iguales empuja
 ** el número al stack 'a'
 ** Si no, hará smart rotation de 'b' hasta que el número sea igual al pivote,
-** cuando será enviado al stack 'a'. Desoues de esto encontrará el numero 
+** cuando será enviado al stack 'a'. Después de esto encontrará el número 
 ** máximo otra vez para ajustarse al nuevo stack
 **
 ** Al final el stack 'b' estará ordenado en el stack 'a'
@@ -104,7 +104,7 @@ void	third_sort(t_list **a, t_list **b, int max, t_var *v)
 	while (*b)
 	{
 		max = get_max(*b);
-		while (check_pivot(*b, max, 2))
+		while (check_pivot((*b), max, 2))
 		{
 			max = get_max(*b);
 			tmp = (*b)->next;

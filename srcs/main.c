@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 11:47:56 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:09:02 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 09:45:55 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	push_swap(t_var *v, int argc, char **argv)
 	check_digits(v->split);
 	v->a = fill_list(v, v->split, list);
 	if (check_sort(&v->a, list_size(v->a)) == 1)
-		return ;
+		exit(0);
 	v->len = list_size(v->a);
 	free_list(&list);
 	if (v->len <= 10)
@@ -94,7 +94,7 @@ int	main(int argc, char **argv)
 
 	v = NULL;
 	if (argc < 2)
-		return (0);
+		exit(1);
 	else
 	{
 		v = ft_init_var(v);
@@ -102,4 +102,5 @@ int	main(int argc, char **argv)
 		free(v);
 		v = NULL;
 	}
+	return (0);
 }

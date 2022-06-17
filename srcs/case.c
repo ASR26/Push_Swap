@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 10:38:51 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/15 08:31:20 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 12:19:56 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,13 @@ void	pick_case(t_list **a, t_list **b, int c, t_var *v)
 		p_list(a, b, tmp);
 		free(tmp);
 	}
-	if (c == 2)
+	else if (c == 2)
 	{
 		ft_putstr_fd("ra\n", v->fd);
 		r_list(a);
 		free(tmp);
 	}
-	if (c == 3 && list_size(*a) > 1)
+	else if (c == 3 && list_size(*a) > 1)
 	{
 		ft_putstr_fd("rra\n", v->fd);
 		rr_list(a, tmp);

@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 10:48:12 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:05:06 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 12:43:28 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,9 @@ void	rr_list(t_list **top, t_list *tmp)
 
 void	r_list(t_list **top)
 {
-	t_list	*tmp;
-
-	tmp = *top;
 	if (*top)
 	{
 		*top = (*top)->next;
-		ft_lstadd_back(top, tmp);
+		add_back_r(top);
 	}
 }

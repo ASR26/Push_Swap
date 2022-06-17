@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 09:06:02 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 08:46:22 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 12:30:38 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	struct s_list	*previous;
 }					t_list;
 
-int			ft_abs(int n);
+int			ft_abs(float n);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
@@ -47,7 +47,7 @@ void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 char		*ft_strnstr(const char *haystack, const char *needle, size_t loc);
 int			ft_atoi(char *str);
-long long	ft_atoll(char *str);
+long long	ps_atoll(char *str);
 void		*ft_calloc(size_t count, size_t size);
 char		*ft_strdup(const char *s1);
 char		*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 10:59:07 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:10:18 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 12:22:12 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	get_pivot(t_list *stack)
 	len = list_size(stack);
 	tmp = ft_lstsort(stack);
 	if (len <= 10)
-	pivot = ft_abs(len / 2);
+		pivot = ft_abs(len / 2);
 	else if (len > 10 && len < 200)
 		pivot = ft_abs(len / 4);
 	else if (len >= 200)

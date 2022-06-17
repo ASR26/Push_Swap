@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/10 10:36:33 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:04:00 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 11:23:01 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_list	*ft_lstsort(t_list *stack);
 int		list_size(t_list *a);
 void	free_list(t_list **stack);
 t_list	*ft_lst_bottom(t_list *a);
+void	add_back_r(t_list **top);
 int		ft_lstnbr(t_list **stack, int index);
 int		get_min(t_list *stack);
 int		get_max(t_list *stack);

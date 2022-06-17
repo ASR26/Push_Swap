@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 10:22:58 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/29 12:51:07 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/16 13:01:07 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,5 @@
 
 void	ft_bzero(void *str, size_t n)
 {
-	char	*nstr;
-
-	nstr = (char *) str;
-	while (n > 0)
-	{
-		*nstr++ = 0;
-		n--;
-	}
+	ft_memset(str, 0, n);
 }

@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 08:28:16 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:09:56 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:39:11 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_sort(t_list **a, int len)
 	tmp = *a;
 	while (tmp && tmp->next)
 	{
-		if (tmp->next != NULL && tmp->content < tmp->next->content)
+		if ((tmp)->next != NULL && tmp->content < tmp->next->content)
 			tmp = tmp->next;
 		else
 			return (0);
@@ -54,6 +54,7 @@ void	check_dup(char **argv)
 			else if (ft_strcmp(tmp, argv[j]) == 0)
 			{
 				ft_free_arg(&tmp);
+				write (1, "Error\n", 6);
 				exit(1);
 			}
 			else
@@ -72,7 +73,7 @@ int	check_overflow(char *arg)
 {
 	long long	tmp;
 
-	tmp = ft_atoi(arg);
+	tmp = ps_atoll(arg);
 	if (tmp >= INT_MIN && tmp <= INT_MAX && ft_strlen(arg) < 12)
 		return (1);
 	return (0);
@@ -86,25 +87,36 @@ int	check_digits(char **argv)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	if (!argv[0])
-		return (0);
-	while (argv[i++])
 	{
-		j = 0;
+		write (1, "Error\n", 6);
+		exit(1);
+	}
+	while (argv[++i])
+	{
+		j = -1;
 		if (check_overflow(argv[i]) == 0)
-			return (0);
-		while (argv[i][j++])
 		{
-			if (!ft_isdigit(argv[i][j]))
-				return (0);
+			write (1, "Error\n", 6);
+			exit (1);
+		}
+		while (argv[i][++j])
+		{
+			if (ft_isalpha(argv[i][j]) == 1 || argv[i][j] == '.'
+			|| ((argv[i][j]) == '-' && (argv[i][j + 1]) == '\0')
+			|| ((argv[i][j]) == '+' && (argv[i][j + 1]) == '\0'))
+			{
+				write (1, "Error\n", 6);
+				exit (1);
+			}
 		}
 	}
 	return (1);
 }
 
 /*
-** Check_pivot comprueba que la flag sea 1, relacionado con el stack a donde
+** Check_pivot comprueba que la flag sea 1, relacionado con el stack 'a' donde
 ** es importante saber si el número es menor o igual que el pivote
 **
 ** si la flag es 2 comprobamos si el número es el pivote

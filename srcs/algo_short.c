@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 08:29:38 by asolano-          #+#    #+#             */
-/*   Updated: 2022/06/16 09:07:19 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/06/17 11:48:51 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	normalize(t_list **a, t_list **b, t_var *v, int min)
 	int	num;
 
 	index = get_index(*a, min, 1);
-	num = list_size((*a)) / 2;
+	num = (list_size((*a)) / 2);
 	if (num > index)
 		pick_case(a, b, RA, v);
 	else
@@ -118,7 +118,7 @@ void	case_with_3(t_list **a, t_list **b, int len, t_var *v)
 ** operaciones necesarias
 **
 ** Si len = 2 y el primer número es mayor que el último hará 'sa'
-** si len = 3 entrará a case_with_3, para cualquier longitud 3 > len >= 1
+** si len = 3 entrará a case_with_3; para cualquier longitud 3 > len >= 1
 ** usará la lógica de mandar los 1-7 números más grandes a 'b' dependiendo
 ** de la longitud de la lista (si son 10 números mandará 7)
 ** Después ordenará los 3 números restantes y mandará los de 'b' en el orden
