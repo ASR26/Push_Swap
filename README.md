@@ -1,3 +1,3 @@
 # Push_Swap
-Based on Victor Akio
+Based on Victor Akio |
 Tested using https://github.com/laisarena/push_swap_tester
