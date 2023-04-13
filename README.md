@@ -47,3 +47,18 @@ Push_Swap is a proyect whose objective is to sort a stack 'A' of numbers using o
 - At this point, if the program continues working it means our arguments are correct so we will put them into `v->a` using our function `fill_list`.
 - `fill_list` will allocate memory for every number and will save them into `v->a`.
 - Now, we have our stack A filled with numbers, so we will check if they are sorted with `check_sort` function. In case they are we will exit with success code (0).
+- If they are not sorted we will have to do it ourselves, so first at all we will save the size of the list in `v->len` using `list_size` function.
+- Now we will free our list since we have the numbers in the stack and we will not need it anymore using our `free_list` function.
+- If our stack is smaller than 11 we will use our `sort_short` function which has an algorithm for small stacks. If it is bigger we will use our `sort_big` function which has a better algorithm for big stacks, [quicksort](https://es.wikipedia.org/wiki/Quicksort).
+- In case we have has to split our argument we will free it after sorting. Lastly we will close our file descriptor.
+
+## Short algorithm
+
+- We will create a temporal `t_list` variable which we will use later.
+- If len is 2 (there are 2 numbers) and they are not in order we will use `pick_case` function telling it to use `sa` movement to sort them.
+- If len is 3 (there are 3 numbers) and they are not in order we will use `case_with_3` function so it will do the best list of movements to sort them. They must be 2 max.
+- If len is greater than 3 (there are more than 3 numbers) and they are not in order we will use `case_with_10`.
+- `case_with_10` will move the lowest number to stack B until there are only 3 in stack A, so we will end with these numbers in descendent order in stack B. To do this with the lowest ammount of movements we will find the lowest value, then we will check if it is faster to move it to the top using `ra` or `rra` and will move it, then push it to B and so on.
+- Once we have only 3 numbers in A we will use `case_with_3` to sort them and bring back stack B numbers so we have a full sorted stack
+-  Since we are using stack B we free stacks A and B because we have the orders already.
+## Big algorithm
