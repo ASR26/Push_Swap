@@ -61,4 +61,54 @@ Push_Swap is a proyect whose objective is to sort a stack 'A' of numbers using o
 - `case_with_10` will move the lowest number to stack B until there are only 3 in stack A, so we will end with these numbers in descendent order in stack B. To do this with the lowest ammount of movements we will find the lowest value, then we will check if it is faster to move it to the top using `ra` or `rra` and will move it, then push it to B and so on.
 - Once we have only 3 numbers in A we will use `case_with_3` to sort them and bring back stack B numbers so we have a full sorted stack
 -  Since we are using stack B we free stacks A and B because we have the orders already.
+
 ## Big algorithm
+
+- We create an int `max` which will hold our biggest number later.
+- In `first_sort` function we will find a pivot using `get_pivot` function, which will be: the middle number (for 10 or less numbers), the quarter number (if there are between 10 and 200 numbers) or the half of a quarter (for more than 200 numbers).
+- Once we have a pivot we will go on, checking if our number is lower than the pivot and moving it to B if so.
+- At this point we will call to `second_sort` function which will move the lowest number from A to B using the smart rotation until A is empty.
+- Now that we do not have any numbers in A it is time to bring them back from B in order.
+- To do this we will call to `third_sort` which will set the biggest number as a pivot and will send it to A using the smart rotation. We will do this until there are no numbers in B, meaning that we have all our numbers in A.
+- After this we will free both lists so we do not have leaks.
+
+## Functions
+
+### pick_case
+
+This function will check which movement we have chosen to do, so it will do it and write that instruction in our file descriptor. This function will call to `next_case` and `next_next_case` if it is necessary since all of them check every posible instruction.
+
+The arguments for this function are: stack A, stack B, the case value (defined in push_swap.h) and our `t_var` variable.
+
+### check functions
+
+- check_sort: This function will check if the list is correctly sorted, returning 0 on succes or 1 on error.
+
+- check_dup: This function will check if there are any duplicated number. In case there are any duplicated number it will exit the program using `ft_exit`.
+- check_overflow: This function will check if the number given as argument is an int. Returning 0 on success or 1 on error.
+- check_digits: This function will check if all of arguments given are integers. In case there is a wrong argument it will exit the program using `ft_exit` function.
+- check_pivots: This function will check if every element in the list is bigger or just different from the pivot given, depending on the flag given. It returns 1 if the list contains any number biger or equal to the pivot, depending on the flag or 0 if it does not.
+
+### get functions
+
+- get_index: This function will return the index of the first element of the stack which is greater or lower than the number given (depending on the flag). It will return -1 in case there is an error.
+- get_pivot: This function will split the stack in 2, 4 or 8 parts, depending on its length.
+- get_max: This function will return the greater value in the stack.
+- get_min: This function will return the lowest value in the stack.
+
+### lst functions
+
+- ft_lstnbr: This function returns the number in the stack asociated at the index given as argument.
+- ft_lstswap: This function will swap the value of two elements from a list.
+- ft_lstsort: This function will sort the list so we have it to compare during the process of sorting using the allowed movements.
+- free_list: This function will free every element in a stack.
+- list_size: This function will return the number of elements in a stack.
+- ft_lst_dup: This function will duplicate a stack and return it.
+- ft_lst_bottom: This function will return the last element in a list.
+- add_back_r: This function put the top element from a list in the last position (this is used in rotation movement).
+- fill_list: This function will fill a stack with the values given as arguments.
+
+### normalize
+
+- normalize_a: This function will choose the better way to rotate stack A, so it takes less movements to put the desired element on top.
+- normalize_b: This function works as `normalize_a` but it check if the list is empty before trying anything.
